@@ -1,0 +1,6 @@
+{% macro render_cliente(clientes) %}
+    <li>Cliente: {{ clientes.to_dict().client }}</li>    
+    <li>Teléfono: {{ clientes.to_dict().phone }}</li>
+    <li>Dirección: {{ clientes.to_dict().address }}</li>
+    
+{% endmacro %}

@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% import 'macros.html' as macros %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block title %}
+    {{ super() }}
+    Bienvenido
+{% endblock %}
+
+{% block content %}
+    {% if username %}
+        <h1>Bienvenido, {{ username | capitalize }}</h1>
+    {% endif %}
+
+    {% if user_ip %}
+        <h4>Tu IP es {{ user_ip }}</h4>
+    {% else %}
+        <a href="{{ url_for('index') }}">Ir a inicio</a>
+    {% endif %}
+
+    <div class="container">
+        <h2>Crea un nuevo cliente</h2>
+
+        {{ wtf.quick_form(cedula_form) }}
+    </div>
+
+    
+{% endblock %}
+

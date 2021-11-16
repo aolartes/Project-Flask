@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% import 'macros.html' as macros %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block title %}
+    {{ super() }}
+    Consulta De Usuario
+{% endblock %}
+
+{% block content %}
+    <h1>Consulta un usuario</h1>
+    <div class="container">
+        {{ wtf.quick_form(query_form) }}
+    </div>
+    <br>
+    <ul>
+        {% for clientes in cliente %}
+            {{ macros.render_cliente(clientes) }}
+        {% endfor %}
+    </ul>
+{% endblock %}

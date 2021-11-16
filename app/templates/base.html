@@ -1,0 +1,48 @@
+{% extends 'bootstrap/base.html' %}
+
+{% block head %}
+    {{ super() }}
+
+    <title>
+        {% block title %}Modelo Programacion II |{% endblock %}
+    </title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css')}}">
+{% endblock %}
+
+{% block body %}
+    {% block navbar %}
+        {% include 'navbar.html' %}
+    {% endblock %}
+
+    {% for message in get_flashed_messages() %}
+        <div class="alert alert-success alert-dismissible">
+            <button type="button"
+                    data-dismiss="alert"
+                    class="close">&times;</button>
+            {{ message }}
+        </div>
+    {% endfor %}
+
+    {% block content %}
+    
+    {% endblock %}
+    {% block scripts %}
+        {{ super() }}
+    {% endblock %}
+    {% block foot %}
+        <footer style="position: absolute;bottom: 0;width:100%">
+            <div class="container-fluid bg-light text-center p-3">
+                <p>&copy; Todos los derechos reservados</p>
+                <h3>::developed by::</h3>
+                <p>Vanessa Patricia Ruiz Mulett</p>
+                <p>Edwin Alexander Osman Serrano</p>
+                <p>Wilson Eduardo Estrada Jiménez</p>
+                <p>Alvaro Olarte Suancha</p>
+                <h3>Universidad Areandina</h3>
+                
+            </div>
+        </footer>
+    {% endblock %}
+{% endblock %}
+
+
